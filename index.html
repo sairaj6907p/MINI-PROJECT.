@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mentor-Student Portal</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="floating-bg"></div>
+
+<!-- Login Section -->
+<section id="loginSection">
+  <div class="card glass">
+    <h2>🎓 Mentor-Student Portal</h2>
+    <p>Login with your username & password</p>
+    <input type="text" id="username" placeholder="Username">
+    <input type="password" id="password" placeholder="Password">
+    <select id="roleSelect">
+      <option value="">Select Role</option>
+      <option value="1st">1st Year Student</option>
+      <option value="2nd">2nd Year Student (Mentor)</option>
+    </select>
+    <button onclick="login()">Login</button>
+    <p id="loginError" class="error"></p>
+  </div>
+</section>
+
+<!-- Dashboard -->
+<section id="dashboardSection" class="hidden">
+  <h2 id="welcomeMessage"></h2>
+  <div class="nav">
+    <button onclick="openDoubtForm()">📝 Ask Doubt</button>
+    <button onclick="viewAnswers()">📖 View Answers</button>
+    <button onclick="viewDoubts()">📝 View 1st Year Doubts</button>
+    <button onclick="openKnowledge()">📘 Knowledge Hub</button>
+    <button onclick="openChatbot()">🤖 Chatbot</button>
+    <button onclick="logout()">🚪 Logout</button>
+  </div>
+
+  <!-- Flowchart -->
+  <div class="flowchart glass">
+    <div class="flow-node">START</div>
+    <div class="arrow">↓</div>
+    <div class="flow-node">User Login (1st/2nd Year)</div>
+    <div class="arrow">↓</div>
+    <div class="flow-node">Identify Role</div>
+    <div class="arrow">↓</div>
+    <div class="flow-node">If 1st Year Student:</div>
+    <div class="sub-flow">
+      <div class="flow-node small">Ask Doubt</div>
+      <div class="flow-node small">View Answers</div>
+      <div class="arrow small">↓</div>
+      <div class="flow-node small">Submit Doubt → Store in DB</div>
+      <div class="flow-node small">Wait for Mentor Response</div>
+      <div class="flow-node small">View Response</div>
+      <div class="flow-node small">Logout</div>
+    </div>
+    <div class="arrow">↓</div>
+    <div class="flow-node">If 2nd Year Student:</div>
+    <div class="sub-flow">
+      <div class="flow-node small">View 1st Year Doubts</div>
+      <div class="flow-node small">Respond → Save Answer</div>
+      <div class="flow-node small">Logout</div>
+    </div>
+  </div>
+
+  <!-- Topic Info -->
+  <div class="topic-info glass">
+    <h3>📘 Topic Guidance</h3>
+    <ul>
+      <li><b>DBMS:</b> Database Management System stores and manages data efficiently.</li>
+      <li><b>OOP:</b> Object-Oriented Programming uses classes and objects.</li>
+      <li><b>Derivative:</b> Basic calculus rule: derivative of x² is 2x.</li>
+      <li><b>SQL:</b> Structured Query Language for database queries.</li>
+      <li><b>OS:</b> Operating System manages hardware & software.</li>
+      <li><b>Compiler:</b> Converts high-level code to machine code.</li>
+      <li><b>AI:</b> Artificial Intelligence enables machines to mimic human intelligence.</li>
+      <li><b>Exam Tips:</b> Timetable, daily revision, and past papers improve performance.</li>
+    </ul>
+  </div>
+
+  <div id="contentArea"></div>
+</section>
+
+<!-- Knowledge Hub -->
+<div id="knowledgeHub" class="modal hidden">
+  <div class="modal-content glass">
+    <h3>📘 Knowledge Hub</h3>
+    <ul>
+      <li><b>DBMS:</b> Database management tips and examples.</li>
+      <li><b>OOP:</b> Object-Oriented Programming concepts.</li>
+      <li><b>Derivative:</b> Calculus basics.</li>
+      <li><b>SQL:</b> Database query basics.</li>
+      <li><b>OS:</b> Operating system concepts.</li>
+      <li><b>Compiler:</b> Compilation process.</li>
+      <li><b>AI:</b> Artificial Intelligence overview.</li>
+    </ul>
+    <button onclick="closeKnowledge()">Close</button>
+  </div>
+</div>
+
+<!-- Chatbot -->
+<div id="chatbotModal" class="modal hidden">
+  <div class="modal-content glass">
+    <h3>🤖 AI Chatbot</h3>
+    <div class="chat-box" id="botBox"></div>
+    <div class="faq-buttons">
+      <button onclick="nextAnswer('What is DBMS?')">DBMS</button>
+      <button onclick="nextAnswer('What is OOP?')">OOP</button>
+      <button onclick="nextAnswer('Derivative of x^2?')">Derivative</button>
+      <button onclick="nextAnswer('What is SQL?')">SQL</button>
+      <button onclick="nextAnswer('What is OS?')">OS</button>
+      <button onclick="nextAnswer('What is Compiler?')">Compiler</button>
+      <button onclick="nextAnswer('What is AI?')">AI</button>
+      <button onclick="nextAnswer('How to prepare for exams?')">Exam Tips</button>
+    </div>
+    <input type="text" id="botInput" placeholder="Type your own question...">
+    <button onclick="askBot()">Ask</button>
+    <button onclick="closeChatbot()">Close</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

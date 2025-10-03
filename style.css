@@ -1,0 +1,32 @@
+body { font-family: Arial, sans-serif; background: linear-gradient(135deg, #141e30, #243b55); color: white; margin: 0; text-align: center; }
+.hidden { display: none; }
+
+.floating-bg { position: fixed; top:0; left:0; right:0; bottom:0; background: radial-gradient(circle, rgba(255,255,255,0.05) 10%, transparent 20%) repeat; background-size:200px 200px; animation: float 20s linear infinite; z-index:-1; }
+@keyframes float { from{background-position:0 0;} to{background-position:1000px 1000px;} }
+
+.card { width:320px; margin:100px auto; padding:20px; border-radius:15px; }
+.glass { background: rgba(255,255,255,0.1); backdrop-filter: blur(12px); box-shadow: 0 0 20px rgba(0,0,0,0.6); }
+
+input, select, textarea, button { width: 85%; margin: 10px auto; padding:10px; border-radius:8px; border:none; }
+button { background:#ff9800; color:white; cursor:pointer; transition:0.3s; }
+button:hover { background:#ff5722; transform:scale(1.05); }
+
+.nav button { margin:5px; }
+textarea { height:80px; resize:none; }
+.chat-box { width:90%; height:200px; margin:10px auto; background: rgba(0,0,0,0.3); padding:10px; border-radius:10px; overflow-y:auto; text-align:left; }
+
+.modal { position:fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.7); display:flex; align-items:center; justify-content:center; }
+.modal-content { padding:20px; border-radius:15px; width:400px; max-height:80%; overflow-y:auto; }
+
+.faq-buttons { margin:10px 0; }
+.faq-buttons button { margin:5px; padding:8px 12px; background:#2196f3; border:none; border-radius:8px; color:white; cursor:pointer; transition:0.3s; }
+.faq-buttons button:hover { background:#0d47a1; transform:scale(1.05); }
+
+.flowchart { margin:20px auto; padding:10px; max-width:600px; text-align:center; border-radius:12px; }
+.flow-node { margin:5px auto; padding:8px 10px; background: rgba(0,0,0,0.3); border-radius:8px; display:inline-block; min-width:200px; }
+.sub-flow { margin-left:20px; }
+.flow-node.small { min-width:150px; font-size:0.9em; }
+.arrow { font-size:1.2em; margin:5px 0; }
+.arrow.small { font-size:1em; margin-left:20px; }
+
+.topic-info { margin:20px auto; padding:10px; max-width:600px; text-align:left; }
